@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="./javascript.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="nav">
@@ -24,9 +26,34 @@
 
             </div>
             <div class="bottom">
-                
+                <div class="book-card">
+                    <img class="book-card__cover"
+                        src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=550&fit=crop"
+                        alt="The Alchemist book cover">
+                    <div class="book-card__body">
+                        <p class="book-card__author">Paulo Coelho</p>
+                        <p class="book-card__title">The Alchemist</p>
+                        <div class="book-card__footer">
+                            <div class="book-card__tags">
+                                <div class="tag tag--fiction">Fiction</div>
+                                <div class="tag tag--read">Read</div>
+                            </div>
+                            <button class="book-card__delete" aria-label="Delete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+                                    <path d="M10 11v6"></path>
+                                    <path d="M14 11v6"></path>
+                                    <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

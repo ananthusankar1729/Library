@@ -18,6 +18,8 @@ body{
 .contents{
     background-color: rgb(39, 14, 63);
     display: flex;
+    flex-direction: column;
+    gap: 5px;
     height:88vh;
 }
 button{
@@ -42,3 +44,85 @@ button:hover{
 }
 
 /* book card styles */
+  .book-card {
+    width: 200px;
+    background: #1c1f2b;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+ 
+  .book-card__cover {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+  }
+ 
+  .book-card__body {
+    padding: 14px 4px 4px;
+  }
+ 
+  .book-card__author {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 0 2px;
+  }
+ 
+  .book-card__title {
+    color: #b9c2d0;
+    font-size: 14px;
+    margin: 0 0 12px;
+  }
+ 
+  .book-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+ 
+  .book-card__tags {
+    display: flex;
+    gap: 8px;
+  }
+ 
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 14px;
+    white-space: nowrap;
+  }
+ 
+  .tag--fiction {
+    background: #f2b93b;
+    color: #3a2b00;
+  }
+ 
+  .tag--read {
+    background: #35c46b;
+    color: #04270f;
+  }
+ 
+  .book-card__delete {
+    background: none;
+    border: none;
+    color: #b9c2d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: color 0.15s ease;
+  }
+ 
+  .book-card__delete:hover {
+    color: #b41414;
+  }
+ 
+  .book-card__delete svg {
+    color: red;
+    width: 18px;
+    height: 18px;
+  }
