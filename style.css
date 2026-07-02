@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(7, 7, 43)
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(0, 0, 0);
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    height: 8vh;
+    width: 98vw;
+    border: 2px solid black;
+    justify-content:space-between;
+}
+.contents{
+    background-color: rgb(39, 14, 63);
+    display: flex;
+    height:88vh;
+}
+button{
+    background-color: violet;
+}
+button:hover{
+    background-color: blueviolet;
+}
+.top{
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    height: 30px;
+}
+.contents button{
+    background-color: rgb(39, 14, 63);
+    color: violet;
+    border: 0px ;
+}
+.contents :hover{
+    color: blueviolet;
+}
+
+/* book card styles */
