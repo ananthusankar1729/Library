@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
-    <script src="./javascript.js"></script>
+    <script src="./javascript.js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -13,9 +13,9 @@
     <div class="container">
         <div class="nav">
             <div class="logo">
-                hiii
+                <h1>My Library</h1>
             </div>
-            <button type="button"> + Add Book</button>
+            <button type="button" id="addButton"> + Add Book</button>
         </div>
         <div class="contents">
             <div class="top">
@@ -26,7 +26,7 @@
 
             </div>
             <div class="bottom">
-                <div class="book-card">
+                <div class="book-card" id="1">
                     <img class="book-card__cover"
                         src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=550&fit=crop"
                         alt="The Alchemist book cover">
@@ -54,6 +54,6 @@
             </div>
         </div>
     </div>
-</body>
+</body> 
 
 </html>
