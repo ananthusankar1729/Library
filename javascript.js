@@ -146,3 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
         addButton.addEventListener("click", info);
     }
 });
+
+function renderLibrary(books){
+    const container = document.querySelector(".bottom");
+    container.replaceChildren();
+
+    myLibrary.forEach((book)=>{
+        container.appendChild(createBookCard(book));
+    })
+}

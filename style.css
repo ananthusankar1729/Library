@@ -188,28 +188,15 @@ button:hover{
     color: #04270f;
   }
  
-  .book-card__delete {
-    background: none;
-    border: none;
-    color: #b9c2d0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-    transition: color 0.15s ease;
-  }
- 
-  .book-card__delete:hover {
-    color: #b41414;
-  }
- 
-  .book-card__delete svg {
-    color: red;
-    width: 18px;
-    height: 18px;
-  }
-  .logo{
-    color: violet;
-    align-self: center;
-  }
+.delButton{
+  height: 30px;
+  background-color: rgb(241, 147, 6);
+}
+.delButton:hover{
+  background-color: red;
+}
+.logo{
+  color: blueviolet;
+  align-self: center;
+}
   
