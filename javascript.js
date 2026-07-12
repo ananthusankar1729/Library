@@ -5,10 +5,13 @@ function Book(title, author, genre, read) {
     this.author = author;
     this.genre = genre;
     this.read = read;
+    this.cover = "https://via.placeholder.com/150?text=" + encodeURIComponent(title);
+    this.status = read ? "read" : "unread";
 }
 
-function addBookToLibrary(id = crypto.randomUUID(), title, author, genre, read = false) {
+function addBookToLibrary(title, author, genre, read = false, id = crypto.randomUUID()) {
     const book = new Book(title, author, genre, read);
+    book.id = id;
     myLibrary.push(book);
 }
 
@@ -115,7 +118,6 @@ function info() {
 
     addButton.addEventListener("click", () => {
         addBookToLibrary(
-            crypto.randomUUID(),
             titleInput.value,
             authorInput.value,
             genreSelect.value,
@@ -123,6 +125,7 @@ function info() {
         );
         console.log(myLibrary);
         infoDiv.remove();
+        renderLibrary();
     });
 
     child5.append(addButton);
@@ -140,18 +143,121 @@ function info() {
     modal.addEventListener("click", (event) => event.stopPropagation());
 }
 
+function createBookCard(book) {
+        // outer card
+        const card = document.createElement("div");
+        card.classList.add("book-card");
+        card.id = book.id;
+
+        // cover image
+        const cover = document.createElement("img");
+        cover.classList.add("book-card__cover");
+        cover.src = "assets/plane book cover.jpg";
+        cover.alt = `${book.title} book cover`;
+
+        // body wrapper
+        const body = document.createElement("div");
+        body.classList.add("book-card__body");
+
+        
+        const author = document.createElement("p");
+        author.classList.add("book-card__author");
+        author.textContent = book.author;
+        
+        const title = document.createElement("p");
+        title.classList.add("book-card__title");
+        title.textContent = book.title;
+        // footer (tags + delete button)
+        const footer = document.createElement("div");
+        footer.classList.add("book-card__footer");
+
+        const tags = document.createElement("div");
+        tags.classList.add("book-card__tags");
+
+        const genreTag = document.createElement("div");
+        genreTag.classList.add("tag", `tag--${book.genre}`);
+        genreTag.textContent = capitalize(book.genre);
+
+        const statusTag = document.createElement("div");
+        statusTag.id = "status"
+        statusTag.classList.add("tag", `tag--${book.status}`);
+        statusTag.textContent = capitalize(book.status);
+        statusTag.style.cursor = "pointer";
+
+        // toggle read status on click
+        statusTag.addEventListener("click", () => {
+            book.read = !book.read;
+            book.status = book.read ? "read" : "unread";
+            renderLibrary();
+        });
+
+        tags.appendChild(genreTag);
+        tags.appendChild(statusTag);
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.id = "delButton"
+        deleteBtn.classList.add("book-card__delete");
+        deleteBtn.setAttribute("aria-label", "Delete");
+        deleteBtn.innerHTML = `<img src="assets/dustbin image.png" alt="delete" style="width: 20px; height: 20px;">`;
+
+        // delete functionality
+        deleteBtn.addEventListener("click", () => {
+            myLibrary = myLibrary.filter(b => b.id !== book.id);
+            renderLibrary();
+        });
+
+        footer.appendChild(tags);
+        footer.appendChild(deleteBtn);
+
+        body.appendChild(title);
+        body.appendChild(author);
+        body.appendChild(footer);
+
+        card.appendChild(cover);
+        card.appendChild(body);
+
+        return card;
+}
+
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function renderLibrary() {
+    const container = document.querySelector(".bottom");
+    container.replaceChildren();
+
+    myLibrary.forEach((book) => {
+        container.appendChild(createBookCard(book));
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const addButton = document.getElementById("addButton");
     if (addButton) {
         addButton.addEventListener("click", info);
     }
+    renderLibrary();
 });
+// function delteBook(book){
+//     myLibrary.remove(book);
+// }
+// function changeRead(book){
+//     if (book.read == true){
+//         book.read = false;
+//     }
+//     else{
+//         book.read = true;
+//     }
+// }
 
-function renderLibrary(books){
-    const container = document.querySelector(".bottom");
-    container.replaceChildren();
-
-    myLibrary.forEach((book)=>{
-        container.appendChild(createBookCard(book));
-    })
-}
+// document.addEventListener("DOMContentLoaded", ()=>{
+//     let delButton = document.getElementById("delButton");
+//     if (delButton){
+//         delButton.addEventListener("click", deleteBook);
+//     }
+// })
+// document.addEventListener("DOMContentLoaded", ()=>{
+//     let status = document.getElementsByClassName("status");
+//     status.addEventListener("click", changeRead);
+// })

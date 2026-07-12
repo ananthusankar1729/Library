@@ -147,15 +147,16 @@ button:hover{
   }
  
   .book-card__author {
-    color: #ffffff;
+    color: #b9c2d0;
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 100;
     margin: 0 0 2px;
   }
- 
+  
   .book-card__title {
-    color: #b9c2d0;
-    font-size: 14px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
     margin: 0 0 12px;
   }
  
@@ -163,11 +164,26 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor:default;
   }
  
   .book-card__tags {
     display: flex;
     gap: 8px;
+  }
+
+  .book-card__delete {
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-card__delete:hover {
+    background-color: red;
   }
  
   .tag {
@@ -188,15 +204,19 @@ button:hover{
     color: #04270f;
   }
  
-.delButton{
+.deleteBtn{
   height: 30px;
   background-color: rgb(241, 147, 6);
 }
-.delButton:hover{
+.deleteBtn:hover{
   background-color: red;
 }
 .logo{
   color: blueviolet;
   align-self: center;
 }
-  
+.bottom{
+  display: flex;
+  margin: 20px;
+  gap: 30px;
+}
